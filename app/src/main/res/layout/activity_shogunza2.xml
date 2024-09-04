@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background3"
+        tools:context=".shogunza2">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="156dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="127dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="128dp"
+            android:text="ข้อมูลบ้านของคุณ"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="342dp"
+            android:layout_height="273dp"
+            android:layout_marginStart="141dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="142dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            tools:ignore="MissingConstraints"
+            tools:srcCompat="@drawable/backgrounds1" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="4dp"
+            android:text="ขนาดพื้นที่ของบ้าน"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextText12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="30dp"
+            android:text="จำนวนห้อง"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextText13"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="39dp"
+            android:text="จำนวนห้องน้ำ"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextText14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="60dp"
+            android:text="ราคาบ้าน"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextText15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="สภาพของบ้าน"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextText16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="25dp"
+            android:text="ประเภพของบ้าน"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextText17"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="63dp"
+            android:layout_marginEnd="30dp"
+            android:text="ปีที่สร้างบ้าน"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextText18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="24dp"
+            android:text="จำนวนที่จอดรถ"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextText19"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="40dp"
+            android:text="ที่อยู่บ้าน"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextText20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editTextText12"
+            android:layout_width="202dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/square"
+            android:ems="10"
+            android:textAlignment="center"
+            android:inputType="text"
+            android:text="Name"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <EditText
+            android:id="@+id/editTextText13"
+            android:layout_width="247dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/square"
+            android:textAlignment="center"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText12" />
+
+        <EditText
+            android:id="@+id/editTextText14"
+            android:layout_width="222dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="19dp"
+            android:textAlignment="center"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/square"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText13" />
+
+        <EditText
+            android:id="@+id/editTextText15"
+            android:layout_width="218dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="30dp"
+            android:textAlignment="center"
+            android:background="@drawable/square"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView15"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText14" />
+
+        <EditText
+            android:id="@+id/editTextText16"
+            android:layout_width="228dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="6dp"
+            android:textAlignment="center"
+            android:background="@drawable/square"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView16"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText15" />
+
+        <EditText
+            android:id="@+id/editTextText17"
+            android:layout_width="210dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/square"
+            android:textAlignment="center"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText16" />
+
+        <EditText
+            android:id="@+id/editTextText18"
+            android:layout_width="217dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/square"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView18"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText17"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editTextText19"
+            android:layout_width="225dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="19dp"
+            android:textAlignment="center"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/square"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText18" />
+
+        <EditText
+            android:id="@+id/editTextText20"
+            android:layout_width="226dp"
+            android:layout_height="82dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="104dp"
+            android:layout_marginEnd="29dp"
+            android:background="@drawable/square"
+            android:textAlignment="center"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView20"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText19"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
