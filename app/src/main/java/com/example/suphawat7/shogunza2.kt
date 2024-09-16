@@ -4,10 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.StrictMode
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 
 class shogunza2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +36,7 @@ class shogunza2 : AppCompatActivity() {
         val editTextText18 = findViewById<EditText>(R.id.editTextText18)
         val editTextText19 = findViewById<EditText>(R.id.editTextText19)
         val editTextText20 = findViewById<EditText>(R.id.editTextText20)
+        val imageViewFile = findViewById<ImageView>(R.id.imageView)
 
         val AreaSize = intent.getStringExtra("AreaSize")
         val NumberOfRooms = intent.getStringExtra("NumberOfRooms")
@@ -44,6 +47,7 @@ class shogunza2 : AppCompatActivity() {
         val YearBuilt = intent.getStringExtra("YearBuilt")
         val ParkingSpaces = intent.getStringExtra("ParkingSpaces")
         val Address = intent.getStringExtra("Address")
+        val Image = intent.getStringExtra("Image")
 
         editTextText12.setText(AreaSize)
         editTextText13.setText(NumberOfRooms)
@@ -54,5 +58,15 @@ class shogunza2 : AppCompatActivity() {
         editTextText18.setText(YearBuilt)
         editTextText19.setText(ParkingSpaces)
         editTextText20.setText(Address)
+
+        if (Image != null) {
+            val url = "http://10.13.1.34:3000" + Image.toString()
+            // Load image using Glide
+            Glide.with(this)
+                .load(url)
+                .into(imageViewFile)
+        }
+
+
     }
 }

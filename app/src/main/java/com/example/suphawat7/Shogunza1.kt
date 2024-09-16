@@ -5,18 +5,31 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.content.Intent
+import android.net.Uri
 import android.os.StrictMode
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.github.dhaval2404.imagepicker.ImagePicker
 import okhttp3.FormBody
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import org.json.JSONObject
+import java.io.File
 
 class Shogunza1 : AppCompatActivity() {
+
+    private lateinit var imagePickerLauncher: ActivityResultLauncher<Intent>
+    private var imageUri: Uri? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,6 +40,9 @@ class Shogunza1 : AppCompatActivity() {
         setContentView(R.layout.activity_shogunza1)
         val buttonNext = findViewById<Button>(R.id.buttonNext)
         val buttonSave = findViewById<Button>(R.id.buttonsave)
+        val buttonUplaod = findViewById<Button>(R.id.buttonUplaod)
+
+        val imageView2 = findViewById<ImageView>(R.id.imageView2)
 
         val editTextText1 = findViewById<EditText>(R.id.editTextText1)
         val editTextText2 = findViewById<EditText>(R.id.editTextText2)
@@ -40,13 +56,35 @@ class Shogunza1 : AppCompatActivity() {
 
         val editTextText10 = findViewById<EditText>(R.id.editTextText10)
 
+        imagePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                val data: Intent? = result.data
+                imageUri = data?.data
+                imageUri?.let {
+                    imageView2.setImageURI(it)
+                    // Handle the image URI here if needed (e.g., uploading to a server)
+                }
+            }
+        }
+
+        buttonUplaod.setOnClickListener {
+            ImagePicker.with(this)
+                .crop()
+                .compress(1024)
+                .maxResultSize(1080, 1080)
+                .createIntent { intent ->
+                    imagePickerLauncher.launch(intent)
+                }
+        }
+
+
         buttonNext.setOnClickListener{
             if (editTextText10.text.isEmpty()){
                 editTextText10.error = "กรุณากรอกข้อมูลให้ครบถ้วน"
                 return@setOnClickListener
             }
 
-            val url = "http://10.13.1.154:3000/get/houses/"+editTextText10.text.toString()
+            val url = "http://10.13.1.34:3000/get/houses/"+editTextText10.text.toString()
             val okHttpClient = OkHttpClient()
             val request: Request = Request.Builder()
                 .url(url)
@@ -68,6 +106,7 @@ class Shogunza1 : AppCompatActivity() {
                     intent.putExtra("YearBuilt",obj["YearBuilt"].toString())
                     intent.putExtra("ParkingSpaces",obj["ParkingSpaces"].toString())
                     intent.putExtra("Address",obj["Address"].toString())
+                    intent.putExtra("Image",obj["Image"].toString())
                     startActivity(intent)
                     finish()
                 } else {
@@ -89,23 +128,30 @@ class Shogunza1 : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val url = "http://10.13.1.154:3000/get/houses"
+            val url = "http://10.13.1.34:3000/get/houses"
 
             val okHttpClient = OkHttpClient()
-            val formBody: RequestBody = FormBody.Builder()
-                .add("AreaSize",editTextText1.text.toString())
-                .add("NumberOfRooms",editTextText2.text.toString())
-                .add("NumberOfBathrooms",editTextText3.text.toString())
-                .add("Price",editTextText4.text.toString())
-                .add("Condition",editTextText5.text.toString())
-                .add("HouseType",editTextText6.text.toString())
-                .add("YearBuilt",editTextText7.text.toString())
-                .add("ParkingSpaces",editTextText8.text.toString())
-                .add("Address",editTextText9.text.toString())
-                .build()
+            val builder = MultipartBody.Builder().setType(MultipartBody.FORM)
+                .addFormDataPart("AreaSize",editTextText1.text.toString())
+                .addFormDataPart("NumberOfRooms",editTextText2.text.toString())
+                .addFormDataPart("NumberOfBathrooms",editTextText3.text.toString())
+                .addFormDataPart("Price",editTextText4.text.toString())
+                .addFormDataPart("Condition",editTextText5.text.toString())
+                .addFormDataPart("HouseType",editTextText6.text.toString())
+                .addFormDataPart("YearBuilt",editTextText7.text.toString())
+                .addFormDataPart("ParkingSpaces",editTextText8.text.toString())
+                .addFormDataPart("Address",editTextText9.text.toString())
+            // Add image if present
+            imageUri?.let {
+                val file = File(it.path!!)
+                val requestFile = file.asRequestBody("image/jpeg".toMediaType())
+                builder.addFormDataPart("Image", file.name, requestFile)
+            }
+            val requestBody = builder.build()
+
             val request: Request = Request.Builder()
                 .url(url)
-                .post(formBody)
+                .post(requestBody)
                 .build()
 
             val response = okHttpClient.newCall(request).execute()
